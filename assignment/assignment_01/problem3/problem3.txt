@@ -1,0 +1,32 @@
+1 	<script type="text/javascript">
+2
+3 		var canvas = document.getElementById(’webgl’);
+4
+5 		var gl = getWebGLContext(canvas);
+6 		if (!gl) {
+7 			console.log(’Failed to get the rendering context for WebGL ’);
+8 			return;
+9 		}
+10
+11 		if (! initShaders(gl, VSHADER_SOURCE , FSHADER_SOURCE)) {
+12 			console.log(’Failed to intialize shaders.’);
+13 			return;
+14 		}
+15 	</script >
+
+
+1. This is the opening tag of an HTML element that contains a string of javascript code as its body.
+2. This line is blank.
+3. The script gets the element "webgl" from the DOM and assigns it to canvas.
+4. Blank line.
+5. Get a WebGL context for the canvas and assign it to gl.
+6. Check if gl exists...
+7. if not write a message to the console...
+8. and end the script.
+9. End if.
+10. Blank line.
+11. Initialize vertex and fragment shaders, and if this fails...
+12. write a message to the console saying this failed...
+13. and end the script.
+14. End if.
+15. This line closes the tag started on line 1.

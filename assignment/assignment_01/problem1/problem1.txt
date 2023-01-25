@@ -1,0 +1,11 @@
+1. Pixel is short for "picture element." Raster images and screens are made from a grid of pixels, each of which specify a color for the area within the pixel. Pixel can refer to the logical pixels of a pixel map image or buffer, or it can refer to the physical pixels on a screen made from liquid crystals or light emitting diodes, etc.
+
+2. The frame buffer is a buffer containing the raster image which is to be displayed on the screen. If you want to "draw" something on the screen, you draw it on the frame buffer.
+
+3. Aliasing refers to the jagged edges created when approximating shapes using only solid-colored pixels. Antialiasing is using intermediate values between the shape being drawn and the background it is being drawn over to create the illusion smooth lines and curves.
+
+4. A bit map is an array of 1-bit color values which represent the pixels in an image. A pixel map is similar, but with a higher number of bits per pixel. In the real world, bitmap is often used more generally to also include pixel maps. The values in a pixel map may represent indices into a palette of colors or encode colors directly. 
+
+5. Resolution refers to the number of pixels in an image or on a screen. This is often written as a width and height e.g., 1920x1080, or in the case of screens the width is dropped when the resolution is referred to in some contexts e.g., 1080p.
+
+6. Color depth refers to the number of bits per pixel in an image. An N bits per pixel (bpp) pixel map can contain 2^N unique colors. Color depth may also be notated using bits per channel (bpc), which is the number of bits assigned to each color channel (e.g., red, green, and blue) in an image. For example, the color depth of most modern, non-HDR screens is 24bpp and 8bpc, while the color depth of transparent images is usually 32bpp but still 8bpc since transparency adds an extra channel.

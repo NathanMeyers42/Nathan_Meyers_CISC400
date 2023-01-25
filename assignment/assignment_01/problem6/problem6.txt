@@ -1,0 +1,51 @@
+function distance(vecA: vector2, vecB: vector2) -> number
+	let x = vecA.x - vecB.x
+	let y = vecA.y - vecB.y
+	return sqrt(x^2 + y^2)
+
+
+function direction_vector(vecA: vector2, vecB: vector2) -> vector2
+	let x = vecB.x - vecA.x
+	let y = vecB.y - vecA.y
+	return vector2(x, y)
+
+
+If there exists a circle that the set of points is on the circumference of,
+this function should get the center point of that circle.
+This is based on fact that the center point of a circle is halfway between two
+points on opposite sides of the circle, and that the distance between two points
+on opposite sides of a circle is greater than that of any other combination of
+two points on the circumference of the circle.
+
+function find_possible_circle_center(points: set(vector2)) -> vector2
+	let anchor_point = an arbitrary vector2 in points
+	let longest_vec = the zero vector2
+	let farthest_point = the zero vector2
+
+	for each point in points
+		let dir_vec = direction_vector(anchor_point, point)
+		if distance(anchor_point, dir_vec) > distance(anchor_point, longest_vec)
+			longest_vec = distance_vec
+			farthest_point = point
+
+	return (anchor_point + farthest_point) / 2
+
+
+function all_on_circumference(points: set(vector2), center: vector2) -> boolean
+	let anchor_distance = distance(an arbitrary vector2 in points, center)
+
+	If all points are on the same circumference, then their distance
+	from the center point should all be the same.
+
+	for each point in points
+		if distance(point, center) != anchor_distance
+			return false
+
+	If the function does not return early, then all distances from 
+	the points to the center are the same
+
+	return true
+
+
+function all_on_any_circumference(points: set(vector2)) -> boolean
+	return all_on_circumference(points, find_possible_circle_center(points))
