@@ -250,8 +250,7 @@ class Timer {
 }
 
 // The following functions are a really stupid workaround for the fact that you can't 
-// detect whether a key is held or not in any normal way.
-// I expect nothing less from webdev.
+// detect whether a key is held or not in a normal way.
 
 // To hold held keys
 let pressedKeys = {
@@ -300,7 +299,7 @@ let isInputHeld = (input) => {
 	return pressedKeys[KEY_MAP[input]];
 }
 
-// This function returns a value from -1 to 1, representing an axis formed from
+// This function returns a value from -1 to 1, representing a distance along an axis formed from
 // the two specified inputs.
 let inputAxis = (input1, input2) => {
 	return (isInputHeld(input1) - isInputHeld(input2));
@@ -549,8 +548,7 @@ class Projectile extends GameObject {
 	update(deltaTime) {
 		if (this.despawnTimer.isFinished()) {
 			//this.destroy(); // despawn the projectile
-			// Destroy is fucking busted for mysterious js concurency reasons or something IDK
-			// Can't even remove an element from an array in js without some bug happening
+			// Destroy is busted for mysterious js concurency reasons or something IDK
 		}
 
 		const SPEED = 16;
